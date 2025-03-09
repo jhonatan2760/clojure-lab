@@ -19,3 +19,8 @@
 ; Besides using map literals, you can use the hash-map function to create
 
 (def hash-map :name "Carl" :balance 2.40)
+
+(def option-map {:team1 "Man. Untd" :team2 "Santos" :team3 "Real Madrid"})
+
+(defn read-option-map [team]
+  (team option-map "team unavailable"))
