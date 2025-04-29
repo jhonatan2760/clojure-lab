@@ -1,7 +1,7 @@
 (ns clojure-lab.clojure-the-brave-and-true.high-order-function)
 
 (defn passport-control
-  [{:keys [name age nacionality passport-number travel-purpose]}]
+  [{:keys [name nacionality passport-number travel-purpose]}]
   (if (and (= nacionality "Brazilian") (= travel-purpose "tourism"))
     (println (str "Welcome " name "! Your passport number is " passport-number))
     (println (str "Sorry " name ", you are not allowed to enter the country."))))
