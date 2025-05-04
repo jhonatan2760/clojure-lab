@@ -10,17 +10,16 @@
 
 ;Example of nested names
 
-(def person {:name {
-                    :first "Malcolm"
+(def person {:name {:first "Malcolm"
                     :sur-name "Da Silva"}})
 
 ;Notice that map values can be of any type—strings, numbers, maps,
 ;vectors, even functions. Clojure don’t care!
 ; Besides using map literals, you can use the hash-map function to create
 
-(def hash-map :name "Carl" :balance 2.40)
+(def created-hash-map (hash-map :name "Carl" :balance 2.40))
 
 (def option-map {:team1 "Man. Untd" :team2 "Santos" :team3 "Real Madrid"})
 
 (defn read-option-map [team]
-  (team option-map "team unavailable"))
+  (get team "team unavailable"))
