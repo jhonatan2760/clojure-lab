@@ -1,0 +1,71 @@
+[
+ {:id #uuid "f3e7b0e1-1234-4f91-8b16-1b3e9a8e2e33"
+  :iata-code "AA123"
+  :airport-departure :JFK
+  :airport-destination :LAX
+  :flight-date "2025-06-10"
+  :available-seats 50}
+
+ {:id #uuid "a1f0d2b2-5678-41e9-a29f-9c76e4c5b7a1"
+  :iata-code "DL456"
+  :airport-departure :LAX
+  :airport-destination :GRU
+  :flight-date "2025-06-11"
+  :available-seats 75}
+
+ {:id #uuid "c5a6e3d4-9101-44fa-8d02-3e5d1a9a1b22"
+  :iata-code "UA789"
+  :airport-departure :CDG
+  :airport-destination :NRT
+  :flight-date "2025-06-12"
+  :available-seats 80}
+
+ {:id #uuid "d7e2f4b5-3456-4b12-9c34-5d7e3f1a2c33"
+  :iata-code "BA321"
+  :airport-departure :NRT
+  :airport-destination :DXB
+  :flight-date "2025-06-13"
+  :available-seats 60}
+
+ {:id #uuid "e9f3a6c7-7890-4c23-8a45-6e8f4a2b3d44"
+  :iata-code "QF654"
+  :airport-departure :SYD
+  :airport-destination :FRA
+  :flight-date "2025-06-14"
+  :available-seats 40}
+
+ {:id #uuid "f0a1b2c3-4567-4d34-9b56-7f0a5b3c4e55"
+  :iata-code "LH987"
+  :airport-departure :FRA
+  :airport-destination :SFO
+  :flight-date "2025-06-15"
+  :available-seats 95}
+
+ {:id #uuid "a2b3c4d5-8910-4e45-8c67-8a1b6c4d5f66"
+  :iata-code "AF111"
+  :airport-departure :SFO
+  :airport-destination :MIA
+  :flight-date "2025-06-16"
+  :available-seats 30}
+
+ {:id #uuid "bc2948f8-d210-416d-8e30-2d554cb2fe53"
+  :iata-code "EK222"
+  :airport-departure :MIA
+  :airport-destination :JFK
+  :flight-date "2025-06-17"
+  :available-seats 55}
+
+ {:id #uuid "3e1a12ed-ac08-4819-882a-4c50d4c12186"
+  :iata-code "NH333"
+  :airport-departure :DXB
+  :airport-destination :SYD
+  :flight-date "2025-06-18"
+  :available-seats 85}
+
+ {:id #uuid "1255440d-b28f-4605-abdb-8524ce946877"
+  :iata-code "IB444"
+  :airport-departure :GRU
+  :airport-destination :CDG
+  :flight-date "2025-06-19"
+  :available-seats 70}
+ ]

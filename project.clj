@@ -7,6 +7,7 @@
                  [prismatic/schema "1.4.1"]
                  [compojure "1.7.0"]
                  [ring/ring-defaults "0.3.3"]
+                 [ring/ring-json "0.5.1"]
                  [ring/ring-jetty-adapter "1.10.0"]
                  [ring/ring-mock "0.4.0"]]
   :test-paths ["test"]
