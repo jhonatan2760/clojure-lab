@@ -9,7 +9,7 @@
   (with-open [r (io/reader (io/resource "data/flights.edn"))]
     (edn/read (PushbackReader. r))))
 
-(s/defn find-flights :- s/Str
+(s/defn find-flights :- [wire.out/Flight]
   "Find available flights through sent parameters"
   []
-  (str flights))
+  flights)
