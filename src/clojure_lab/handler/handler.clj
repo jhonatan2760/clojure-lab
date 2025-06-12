@@ -7,9 +7,8 @@
 
 (defroutes app-routes
            (GET "/" [] "Hello, World!")
-           (GET "/flights" [] {:status 200
-                               :body (controller.flight/find-flights)})
-           )
+           (GET "/flights" [from to] {:status 200
+                               :body (controller.flight/find-flights {:from from :to to})}))
 
 (def app
   (-> app-routes
