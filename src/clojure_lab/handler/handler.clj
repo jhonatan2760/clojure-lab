@@ -8,7 +8,11 @@
 (defroutes app-routes
            (GET "/" [] "Hello, World!")
            (GET "/flights" [from to] {:status 200
-                               :body (controller.flight/find-flights {:from from :to to})}))
+                               :body (controller.flight/find-flights {:from from :to to})})
+           (GET "/airport/panel"
+                {:status 200
+                 :body (controller.flight/all-flights)})
+           )
 
 (def app
   (-> app-routes

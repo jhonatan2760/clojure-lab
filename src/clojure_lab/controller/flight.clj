@@ -10,8 +10,5 @@
   (with-open [r (io/reader (io/resource "data/flights.edn"))]
     (edn/read (PushbackReader. r))))
 
-(s/defn find-flights :- [wire.out/Flight]
-  "Find available flights through sent parameters"
-  [flight :- wire.in/Flight]
-  ;todo - filter flight by the query-param input
+(s/defn all-flights [] :- [wire.out/Flight]
   flights)
