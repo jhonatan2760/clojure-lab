@@ -4,14 +4,14 @@
             [schema.core :as s]))
 
 (s/defn find-flights :- [model.flight/Flight]
-  "Find available flights through sent parameters"
-  [flight :- wire.in/Flight
+  [flight  :- model.flight/SearchFlight
    flights :- [model.flight/Flight]]
-  (let [criteria (into {} (filter (comp some? val) flight))]
-    (filter
-      (fn [flight]
-        (every?
-          (fn [[k v]] (= (get flight k) v))
-          criteria))
-      flights)))
+  (filter
+    (fn [f]
+      (or
+        (nil? (:airport-departure flight))
+        (= (:airport-departure f)
+           (:airport-departure flight))))
+    flights))
+
 

@@ -1,11 +1,10 @@
 (ns clojure-lab.controller.flight
-  (:require [clojure.edn :as edn]
+  (:require [clojure-lab.model.flight :as model.flight]
+            [clojure.edn :as edn]
             [clojure.java.io :as io]
             [schema.core :as s]
-            [clojure-lab.wire.in.flight :as wire.in]
             [clojure-lab.logic.flight :as logic.flight]
-            [clojure-lab.model.flight :as models.flight]
-            [clojure-lab.wire.out.flight :as wire.out])
+            [clojure-lab.model.flight :as models.flight])
   (:import (java.io PushbackReader)))
 
 (def flights
@@ -15,6 +14,6 @@
 (s/defn all-flights [] :- [models.flight/Flight]
   flights)
 
-(s/defn find-flights [flight :- wire.in/Flight] :- [wire.out/Flight]
+(s/defn find-flights :- [model.flight/Flight]
+  [flight :- models.flight/SearchFlight]
   (logic.flight/find-flights flight flights))
-

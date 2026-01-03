@@ -4,6 +4,6 @@
   (:gen-class))
 
 (defn -main
-  "Execute car routine..."
+  "Execute airport routine..."
   [& args]
   (run-jetty app {:port 3000 :join? false}))
