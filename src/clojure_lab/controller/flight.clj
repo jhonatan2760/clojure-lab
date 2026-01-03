@@ -18,7 +18,3 @@
 (s/defn find-flights [flight :- wire.in/Flight] :- [wire.out/Flight]
   (logic.flight/find-flights flight flights))
 
-(s/defn filter-flights [flights :- [models.flight/Flight]
-                        flight :- models.flight/Flight] :- [models.flight/Flight]
-  (filter #(= (:iata-code %) (:iata-code flight))
-          flights))

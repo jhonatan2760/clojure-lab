@@ -4,9 +4,14 @@
             [schema.core :as s]))
 
 (s/defn find-flights :- [model.flight/Flight]
-        "Find available flights through sent parameters"
-        [flight :- wire.in/Flight
-         flights-data :- [model.flight/Flight]]
-        ;TODO - convert it to a model return, convert the receive parameter as well
-        (->> flights-data
-             (filter #(= (:airport-departure %) (keyword (:from flight))))))
+  "Find available flights through sent parameters"
+  [flight :- wire.in/Flight
+   flights :- [model.flight/Flight]]
+  (let [criteria (into {} (filter (comp some? val) flight))]
+    (filter
+      (fn [flight]
+        (every?
+          (fn [[k v]] (= (get flight k) v))
+          criteria))
+      flights)))
+
