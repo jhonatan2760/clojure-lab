@@ -1,9 +1,10 @@
 (ns clojure-lab.handler.handler
-  (:require [cheshire.core :as json]
-            [compojure.core :refer :all]
+  (:require [compojure.core :refer :all]
             [clojure-lab.adapter.flight :as adapter.flight]
+            [clojure-lab.adapter.airport-panel :as adapter.airport-panel]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [clojure-lab.controller.flight :as controller.flight]
+            [clojure-lab.controller.aiport-panel :as controller.aiport-panel]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             ))
 
@@ -18,7 +19,9 @@
            (GET "/airport/panel"
                 []
              {:status 200
-              :body   (controller.flight/all-flights)})
+              :body   (-> (controller.aiport-panel/get-airport-panel)
+                           (adapter.airport-panel/wire->out)
+                           )})
 
            ;Airline flights information
            (GET "/airport/check-in"
