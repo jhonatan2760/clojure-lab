@@ -19,9 +19,7 @@
            (GET "/airport/panel"
                 []
              {:status 200
-              :body   (-> (controller.aiport-panel/get-airport-panel)
-                           (adapter.airport-panel/wire->out)
-                           )})
+              :body   (controller.aiport-panel/get-airport-panel)})
 
            ;Airline flights information
            (GET "/airport/check-in"
