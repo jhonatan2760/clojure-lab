@@ -1,12 +1,10 @@
 (ns clojure-lab.handler.handler
   (:require [compojure.core :refer :all]
             [clojure-lab.adapter.flight :as adapter.flight]
-            [clojure-lab.adapter.airport-panel :as adapter.airport-panel]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [clojure-lab.controller.flight :as controller.flight]
             [clojure-lab.controller.aiport-panel :as controller.aiport-panel]
-            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
-            ))
+            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]))
 
 (defroutes app-routes
            (GET "/favicon.ico" [] {:status 204})
@@ -25,8 +23,7 @@
            (GET "/airport/check-in"
                 []
              {:status 200
-              :body   (controller.flight/all-flights)})
-           )
+              :body   (controller.flight/all-flights)}))
 
 (def app
   (-> app-routes
