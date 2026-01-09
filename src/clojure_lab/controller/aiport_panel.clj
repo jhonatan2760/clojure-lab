@@ -16,7 +16,7 @@
 (s/defn all-flights [] :- [models.flight/Flight]
   flights)
 
-(s/defn get-airport-panel :- wire.out.airport-panel/AirportPanel
+(s/defn get-airport-panel :- model.panel/AirportPanel
   []
   (adapter.airport-panel/wire->out  {:id         (random-uuid)
                                      :airport    "GRU"

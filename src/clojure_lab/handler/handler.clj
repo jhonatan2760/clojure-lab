@@ -1,5 +1,6 @@
 (ns clojure-lab.handler.handler
-  (:require [compojure.core :refer :all]
+  (:require [clojure-lab.adapter.airport-panel :as adapter.airport-panel]
+            [compojure.core :refer :all]
             [clojure-lab.adapter.flight :as adapter.flight]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [clojure-lab.controller.flight :as controller.flight]
@@ -11,13 +12,15 @@
            ;Customer flight-information
            (GET "/flights" [from to]
              (let [search (adapter.flight/wire->in {:from from :to to})
-                   result (or (controller.flight/find-flights search) [])]
+                   result (or (-> (controller.flight/find-flights search)
+                                  (adapter.flight/wire->out))  [])]
                {:status 200
                 :body   {:flights result}}))
            (GET "/airport/panel"
                 []
              {:status 200
-              :body   (controller.aiport-panel/get-airport-panel)})
+              :body   (-> (controller.aiport-panel/get-airport-panel)
+                          (adapter.airport-panel/wire->out))})
 
            ;Airline flights information
            (GET "/airport/check-in"
