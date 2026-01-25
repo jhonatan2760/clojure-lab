@@ -9,7 +9,9 @@
                  [ring/ring-defaults "0.3.3"]
                  [ring/ring-json "0.5.1"]
                  [ring/ring-jetty-adapter "1.10.0"]
-                 [ring/ring-mock "0.4.0"]]
+                 [ring/ring-mock "0.4.0"]
+                 [com.datomic/local "1.0.291"]
+                 [com.datomic/client-cloud "1.0.131"]]
   :test-paths ["test"]
   :main ^:skip-aot clojure-lab.core
   :target-path "target/%s"

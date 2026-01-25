@@ -10,7 +10,6 @@
 
 (s/defn wire->out [flights :- [model.flight/Flight]]
   :- [wire.out.flight/Flight]
-  (println "Received flights : " flights)
   (mapv
     (fn [f]
       (select-keys f
