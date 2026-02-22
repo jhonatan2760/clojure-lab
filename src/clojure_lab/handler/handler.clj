@@ -11,9 +11,9 @@
            (GET "/favicon.ico" [] {:status 204})
            ;Customer flight-information
            (GET "/flights" [from to]
-             (let [search (adapter.flight/wire->in {:from from :to to})
+             (let [search (adapter.flight/wire-in->internal {:from from :to to})
                    result (or (-> (controller.flight/find-flights search)
-                                  (adapter.flight/wire->out))  [])]
+                                  (adapter.flight/internal->wire-out)) [])]
                {:status 200
                 :body   {:flights result}}))
            (GET "/airport/panel"

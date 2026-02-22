@@ -4,12 +4,13 @@
             [clojure-lab.wire.out.flight :as wire.out.flight]
             [schema.core :as s]))
 
-(s/defn wire->in [flight :- wire.in.flight/Flight] :- model.flight/SearchFlight
+(s/defn wire-in->internal :- model.flight/SearchFlight
+  [flight :- wire.in.flight/Flight]
   {:airport-departure (:from flight)
    :airport-destination (:to flight)})
 
-(s/defn wire->out [flights :- [model.flight/Flight]]
-  :- [wire.out.flight/Flight]
+(s/defn internal->wire-out :- [wire.out.flight/Flight]
+  [flights :- [model.flight/Flight]]
   (mapv
     (fn [f]
       (select-keys f
