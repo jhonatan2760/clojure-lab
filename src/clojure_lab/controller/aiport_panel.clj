@@ -8,8 +8,11 @@
   (:import (java.time Instant)))
 
 
-(s/defn all-flights [] :- [models.flight/Flight]
-  (datomic.flight/all-flights-datomic))
+(s/defn all-flights [airport] :- models.flight/Flight
+  (datomic.flight/filter-flights-by-airport-datomic airport))
+
+(s/defn filter-flights [airport]
+  )
 
 (s/defn get-airport-panel :- model.panel/AirportPanel
   []

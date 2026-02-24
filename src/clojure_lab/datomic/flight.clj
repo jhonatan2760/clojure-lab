@@ -14,3 +14,17 @@
                 [?e :flight/id ?id]]
               db)
          (mapv first))))
+
+(defn filter-flights-by-airport-datomic [airport]
+  (let [db (d/db (conn))]
+    (->> (d/q '[:find (pull ?e [:flight/id
+                                :flight/iata-code
+                                :flight/airport-departure
+                                :flight/airport-destination
+                                :flight/flight-date
+                                :flight/available-seats])
+                :in $ ?airport
+                :where
+                [?e :flight/airport-departure ?airport]]
+              db
+              airport))))
